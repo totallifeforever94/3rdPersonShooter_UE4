@@ -1,0 +1,9 @@
+{
+	"configurations": [
+		{
+			"name": "ShooterEditor Editor Win64 Development (Shooter)",
+			"intelliSenseMode": "msvc-x64",
+			"compileCommands": "F:\\UnrealEngineProjects\\Shooter\\Shooter\\.vscode\\compileCommands_Shooter.json"
+		}
+	]
+}
