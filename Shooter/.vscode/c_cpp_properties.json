@@ -40,7 +40,9 @@
                 "E:/UE_4.26/Engine/Source",
                 "E:/UE_4.26/Engine/Source/Runtime",
                 "E:/UE_4.26/Engine/Source/Runtime/ClothingSystemRuntimeInterface/Public",
-                "E:/UE_4.26/Engine/Intermediate/Build/Win64/UE4Editor/Inc/ClothingSystemRuntimeInterface"
+                "E:/UE_4.26/Engine/Intermediate/Build/Win64/UE4Editor/Inc/ClothingSystemRuntimeInterface",
+                "E:/UE_4.26/Engine/Source/Runtime/DeveloperSettings/Public",
+                "E:/UE_4.26/Engine/Intermediate/Build/Win64/UE4Editor/Inc/DeveloperSettings"
             ],
             "cStandard": "c17",
             "cppStandard": "c++17",
