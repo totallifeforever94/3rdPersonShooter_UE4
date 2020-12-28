@@ -49,7 +49,9 @@
                 "E:/UE_4.26/Engine/Intermediate/Build/Win64/UE4Editor/Inc/AIModule",
                 "E:/UE_4.26/Engine/Source/Runtime/GameplayTasks/Classes",
                 "E:/UE_4.26/Engine/Source/Runtime/GameplayTasks/Public",
-                "E:/UE_4.26/Engine/Intermediate/Build/Win64/UE4Editor/Inc/GameplayTasks"
+                "E:/UE_4.26/Engine/Intermediate/Build/Win64/UE4Editor/Inc/GameplayTasks",
+                "E:/UE_4.26/Engine/Source/Runtime/GameplayTags/Classes",
+                "E:/UE_4.26/Engine/Intermediate/Build/Win64/UE4Editor/Inc/GameplayTags"
             ],
             "cStandard": "c17",
             "cppStandard": "c++17",

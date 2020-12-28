@@ -14,6 +14,10 @@ class SHOOTER_API AShooterAIController : public AAIController
 {
 	GENERATED_BODY()
 
+private:
+	UPROPERTY(EditAnywhere)
+	class UBehaviorTree *AIBehavior;
+
 public:
 	virtual void Tick(float DeltaSeconds) override;
 
