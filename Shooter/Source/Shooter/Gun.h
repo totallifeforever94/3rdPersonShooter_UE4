@@ -20,6 +20,10 @@ public:
 
 	void PullTrigger();
 
+	void Reload();
+
+	FString GetAmmoLeft() const;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -41,13 +45,21 @@ private:
 	UParticleSystem *ShotImpact;
 
 	UPROPERTY(EditAnywhere, Category = "Sounds")
-	USoundBase * ImpactSound;
+	USoundBase *ImpactSound;
 
 	UPROPERTY(EditAnywhere)
 	float MaxRange = 1000.f;
 
 	UPROPERTY(EditAnywhere)
 	float Damage = 10.f;
+
+	UPROPERTY(EditDefaultsOnly)
+	int32 MaxAmmo = 120;
+
+	UPROPERTY(EditDefaultsOnly)
+	int32 InitialAmmoPerMagazine = 30;
+
+	int32 CurrentAmmoInMagazine;
 
 	bool GunTrace(FHitResult &Hit, FVector &ShotDirection);
 

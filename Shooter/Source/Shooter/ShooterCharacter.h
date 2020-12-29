@@ -27,11 +27,16 @@ public:
 
 	void Shoot();
 
+	void Reload();
+
 	UFUNCTION(BlueprintPure)
 	bool IsDead() const;
 
 	UFUNCTION(BlueprintPure)
 	float GetHealthPercent() const;
+
+	UFUNCTION(BlueprintPure)
+	FString GetAmmoLeft() const;
 
 protected:
 	// Called when the game starts or when spawned

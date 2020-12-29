@@ -3,7 +3,6 @@
 #include "Gun.h"
 #include "Components/SkeletalMeshComponent.h"
 #include "Kismet/GameplayStatics.h"
-#include "DrawDebugHelpers.h"
 
 // Sets default values
 AGun::AGun()
@@ -22,6 +21,8 @@ AGun::AGun()
 void AGun::BeginPlay()
 {
 	Super::BeginPlay();
+
+	CurrentAmmoInMagazine = InitialAmmoPerMagazine;
 }
 
 bool AGun::GunTrace(FHitResult &Hit, FVector &ShotDirection)
@@ -67,23 +68,44 @@ void AGun::Tick(float DeltaTime)
 
 void AGun::PullTrigger()
 {
-	UGameplayStatics::SpawnEmitterAttached(MuzzleFlash, Mesh, TEXT("MuzzleFlashSocket"));
-	UGameplayStatics::SpawnSoundAttached(MuzzleSound, Mesh, TEXT("MuzzleFlashSocket"));
-
-	FHitResult Hit;
-	FVector ShotDirection;
-	if (GunTrace(Hit, ShotDirection))
+	if (CurrentAmmoInMagazine > 0)
 	{
+		CurrentAmmoInMagazine--;
+		UGameplayStatics::SpawnEmitterAttached(MuzzleFlash, Mesh, TEXT("MuzzleFlashSocket"));
+		UGameplayStatics::SpawnSoundAttached(MuzzleSound, Mesh, TEXT("MuzzleFlashSocket"));
 
-		UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), ShotImpact, Hit.Location, ShotDirection.Rotation());
-		AActor *HitActor = Hit.GetActor();
-
-		if (HitActor != nullptr)
+		FHitResult Hit;
+		FVector ShotDirection;
+		if (GunTrace(Hit, ShotDirection))
 		{
-			UGameplayStatics::PlaySoundAtLocation(GetWorld(), ImpactSound, Hit.Location);
-			FPointDamageEvent DamageEvent(Damage, Hit, ShotDirection, nullptr);
-			AController *OwnerController = GetOwnerController();
-			HitActor->TakeDamage(Damage, DamageEvent, OwnerController, this);
+
+			UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), ShotImpact, Hit.Location, ShotDirection.Rotation());
+			AActor *HitActor = Hit.GetActor();
+
+			if (HitActor != nullptr)
+			{
+				UGameplayStatics::PlaySoundAtLocation(GetWorld(), ImpactSound, Hit.Location);
+				FPointDamageEvent DamageEvent(Damage, Hit, ShotDirection, nullptr);
+				AController *OwnerController = GetOwnerController();
+				HitActor->TakeDamage(Damage, DamageEvent, OwnerController, this);
+			}
 		}
 	}
+}
+
+void AGun::Reload()
+{
+	if (MaxAmmo - InitialAmmoPerMagazine < 0)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Shit, out of ammo!!!"));
+		return;
+	}
+
+	MaxAmmo -= InitialAmmoPerMagazine;
+	CurrentAmmoInMagazine = InitialAmmoPerMagazine;
+}
+
+FString AGun::GetAmmoLeft() const
+{
+	return FString::Printf(TEXT("%i / %i"), CurrentAmmoInMagazine, MaxAmmo);
 }
