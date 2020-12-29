@@ -22,7 +22,7 @@ void UBTService_PlayerLocationIfSeen::TickNode(UBehaviorTreeComponent &OwnerComp
         return;
     }
 
-    if (!OwnerComp.GetAIOwner()) 
+    if (!OwnerComp.GetAIOwner())
     {
         return;
     }
