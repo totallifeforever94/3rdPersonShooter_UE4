@@ -21,7 +21,7 @@ EBTNodeResult::Type UBTTask_Shoot::ExecuteTask(UBehaviorTreeComponent &OwnerComp
 
     AShooterCharacter *Character = Cast<AShooterCharacter>(OwnerComp.GetAIOwner()->GetPawn());
 
-    if (!Character) 
+    if (Character == nullptr) 
     {
         return EBTNodeResult::Failed;
     }

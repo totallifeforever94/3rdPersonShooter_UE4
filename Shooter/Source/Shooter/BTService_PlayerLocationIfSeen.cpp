@@ -17,7 +17,7 @@ void UBTService_PlayerLocationIfSeen::TickNode(UBehaviorTreeComponent &OwnerComp
 
     APawn *PlayerPawn = UGameplayStatics::GetPlayerPawn(GetWorld(), 0);
 
-    if (!PlayerPawn)
+    if (PlayerPawn == nullptr)
     {
         return;
     }

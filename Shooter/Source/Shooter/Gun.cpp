@@ -36,14 +36,14 @@ void AGun::PullTrigger()
 
 	APawn *OwnerPawn = Cast<APawn>(GetOwner());
 
-	if (!OwnerPawn)
+	if (OwnerPawn == nullptr)
 	{
 		return;
 	}
 
 	AController *OwnerController = OwnerPawn->GetController();
 
-	if (!OwnerController)
+	if (OwnerController == nullptr)
 	{
 		return;
 	}
