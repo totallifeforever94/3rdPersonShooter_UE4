@@ -51,7 +51,13 @@
                 "E:/UE_4.26/Engine/Source/Runtime/GameplayTasks/Public",
                 "E:/UE_4.26/Engine/Intermediate/Build/Win64/UE4Editor/Inc/GameplayTasks",
                 "E:/UE_4.26/Engine/Source/Runtime/GameplayTags/Classes",
-                "E:/UE_4.26/Engine/Intermediate/Build/Win64/UE4Editor/Inc/GameplayTags"
+                "E:/UE_4.26/Engine/Intermediate/Build/Win64/UE4Editor/Inc/GameplayTags",
+                "E:/UE_4.26/Engine/Source/Runtime/UMG/Public",
+                "E:/UE_4.26/Engine/Intermediate/Build/Win64/UE4Editor/Inc/UMG",
+                "E:/UE_4.26/Engine/Source/Runtime/MovieScene/Public",
+                "E:/UE_4.26/Engine/Intermediate/Build/Win64/UE4Editor/Inc/MovieScene",
+                "E:/UE_4.26/Engine/Source/Runtime/PropertyPath/Public",
+                "E:/UE_4.26/Engine/Intermediate/Build/Win64/UE4Editor/Inc/PropertyPath"
             ],
             "cStandard": "c17",
             "cppStandard": "c++17",
