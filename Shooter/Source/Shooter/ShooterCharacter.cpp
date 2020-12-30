@@ -62,7 +62,7 @@ float AShooterCharacter::TakeDamage(float DamageAmount, struct FDamageEvent cons
 		{
 			GameMode->PawnKilled(this);
 		}
-		
+
 		DetachFromControllerPendingDestroy();
 		GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 	}
@@ -107,7 +107,7 @@ void AShooterCharacter::Shoot()
 	Gun->PullTrigger();
 }
 
-void AShooterCharacter::Reload() 
+void AShooterCharacter::Reload()
 {
 	Gun->Reload();
 }
@@ -115,4 +115,18 @@ void AShooterCharacter::Reload()
 FString AShooterCharacter::GetAmmoLeft() const
 {
 	return Gun->GetAmmoLeft();
+}
+
+bool AShooterCharacter::HasAmmo() const
+{
+	if (Gun->HasAmmo())
+	{
+		UE_LOG(LogTemp, Error, TEXT("Has Ammo"));
+	}
+	else
+	{
+		UE_LOG(LogTemp, Error, TEXT("No Ammo"));
+	}
+
+	return Gun->HasAmmo();
 }

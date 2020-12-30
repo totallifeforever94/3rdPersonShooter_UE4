@@ -3,6 +3,7 @@
 #include "Gun.h"
 #include "Components/SkeletalMeshComponent.h"
 #include "Kismet/GameplayStatics.h"
+#include "BehaviorTree/BlackboardComponent.h"
 
 // Sets default values
 AGun::AGun()
@@ -108,4 +109,9 @@ void AGun::Reload()
 FString AGun::GetAmmoLeft() const
 {
 	return FString::Printf(TEXT("%i / %i"), CurrentAmmoInMagazine, MaxAmmo);
+}
+
+bool AGun::HasAmmo() const
+{
+	return CurrentAmmoInMagazine > 0 || MaxAmmo > 0;
 }
